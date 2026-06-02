@@ -68,7 +68,8 @@ inject_global_css()
 # SIDEBAR
 # -------------------------------------------------------
 render_sidebar_brand()
-health_df, health_summary = show_health_banner()
+result = show_health_banner()
+health_df, health_summary = result if result else (None, None)
 
 page = st.sidebar.radio(
     "Navigation",
@@ -109,7 +110,7 @@ project_mode = st.sidebar.selectbox(
 
 st.sidebar.markdown("### Current Build")
 st.sidebar.success("MVP Complete")
-st.sidebar.caption("Sprint 14: Professional UI Polish")
+st.sidebar.caption("Final MVP Build")
 
 
 # -------------------------------------------------------
@@ -151,143 +152,129 @@ def ev_architecture_diagram():
         "Scenario Store",
         "Report Generator"
     ]
-
+ 
     source = [
         0, 1, 2, 3, 4, 5,
         7, 7, 7,
         1, 3, 4,
         8, 8
     ]
-
+ 
     target = [
         1, 2, 3, 4, 5, 6,
         1, 3, 4,
         8, 8, 8,
         9, 6
     ]
-
+ 
     value = [
-        1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-        0.40, 0.30, 0.30,
-        0.25, 0.25, 0.25,
-        0.50, 0.20
+        1.00, 1.00, 1.00, 1.00, 1.00, 1.00,
+        0.18, 0.14, 0.14,
+        0.12, 0.12, 0.12,
+        0.20, 0.10
     ]
-
+ 
+    node_colors = [
+        "#40C4FF",  # Charger
+        "#00E676",  # Battery Pack
+        "#FFD54F",  # BMS
+        "#FFAB40",  # Inverter
+        "#FF5252",  # Motor
+        "#7C4DFF",  # Gearbox
+        "#18FFFF",  # Wheels
+        "#69F0AE",  # Thermal System
+        "#B388FF",  # Scenario Store
+        "#FFEA00"   # Report Generator
+    ]
+ 
+    # ── FIXED node positions (Bug 5) ────────────────────────────────────────
+    node_x = [
+        0.02,   # Charger
+        0.20,   # Battery Pack
+        0.34,   # BMS
+        0.48,   # Inverter
+        0.62,   # Motor
+        0.76,   # Gearbox
+        0.94,   # Wheels
+        0.06,   # Thermal System  ← was 0.02 (shared with Charger)
+        0.80,   # Scenario Store  ← was 0.76 (shared with Gearbox)
+        0.94    # Report Generator
+    ]
+ 
+    node_y = [
+        0.20,   # Charger
+        0.28,   # Battery Pack
+        0.36,   # BMS
+        0.42,   # Inverter
+        0.42,   # Motor
+        0.20,   # Gearbox
+        0.20,   # Wheels
+        0.72,   # Thermal System
+        0.70,   # Scenario Store
+        0.78    # Report Generator  ← was 0.72 (shared with Scenario Store)
+    ]
+ 
     fig = go.Figure(
         data=[
             go.Sankey(
-                arrangement="snap",
+                arrangement="fixed",
                 node=dict(
-                    pad=18,
-                    thickness=22,
+                    pad=22,
+                    thickness=18,
                     line=dict(
-                        color="rgba(230,241,255,0.35)",
-                        width=0.6
+                        color="rgba(230,241,255,0.45)",
+                        width=0.8
                     ),
                     label=labels,
-                    color=[
-                        "#40C4FF",
-                        "#00E676",
-                        "#FFD54F",
-                        "#FFAB40",
-                        "#FF5252",
-                        "#7C4DFF",
-                        "#18FFFF",
-                        "#69F0AE",
-                        "#B388FF",
-                        "#FFEA00"
-                    ]
+                    x=node_x,
+                    y=node_y,
+                    color=node_colors,
+                    hovertemplate="%{label}<extra></extra>"
                 ),
                 link=dict(
                     source=source,
                     target=target,
                     value=value,
-                    color="rgba(0,230,118,0.22)"
+                    color=[
+                        "rgba(0,230,118,0.30)",
+                        "rgba(0,230,118,0.30)",
+                        "rgba(0,230,118,0.30)",
+                        "rgba(0,230,118,0.30)",
+                        "rgba(0,230,118,0.30)",
+                        "rgba(0,230,118,0.30)",
+                        "rgba(105,240,174,0.20)",
+                        "rgba(105,240,174,0.20)",
+                        "rgba(105,240,174,0.20)",
+                        "rgba(179,136,255,0.18)",
+                        "rgba(179,136,255,0.18)",
+                        "rgba(179,136,255,0.18)",
+                        "rgba(255,234,0,0.22)",
+                        "rgba(255,234,0,0.16)"
+                    ],
+                    hovertemplate="Flow strength: %{value}<extra></extra>"
                 )
             )
         ]
     )
-
+ 
     fig.update_layout(
-        title_text="EV Digital Twin Energy, Control, Thermal, Scenario, and Report Flow",
+        title=dict(
+            text="EV Digital Twin Energy, Control, Thermal, Scenario, and Report Flow",
+            x=0.02,
+            xanchor="left",
+            font=dict(size=16, color="#E6F1FF")
+        ),
         font=dict(
             size=12,
             color="#E6F1FF"
         ),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        height=460,
-        margin=dict(l=10, r=10, t=55, b=10)
+        height=560,
+        margin=dict(l=20, r=30, t=70, b=35)
     )
 
-    st.plotly_chart(fig, use_container_width=True)
-
-
-def module_status_dataframe():
-    data = {
-        "Module": [
-            "App Health Check",
-            "Real EV Presets",
-            "Preset to Saved Scenario",
-            "Battery Chemistry Lab",
-            "Pack Design Lab",
-            "Charging Lab",
-            "Range Lab",
-            "Scenario Compare",
-            "Saved Scenario Compare",
-            "BMS & SOC Lab",
-            "Motor & Inverter Lab",
-            "Thermal Lab",
-            "Saved Scenarios",
-            "Scenario Search & Filters",
-            "Scenario Import / Export",
-            "Dashboard Analytics",
-            "Report Generator",
-            "Auto Report from Scenario"
-        ],
-        "Purpose": [
-            "Check files, folders, imports, database, and app readiness",
-            "Review Indian EV-style presets used in Range Lab and Scenario Compare",
-            "Auto-create saved scenarios directly from Indian EV-style presets",
-            "Compare LFP, NMC, NCA, and LTO battery chemistries",
-            "Calculate pack voltage, Ah, kWh, cell count, and pack mass",
-            "Simulate charging time, CC-CV taper, cost, and derating",
-            "Estimate Wh/km, range, road-load forces, and speed sensitivity",
-            "Compare two EV architectures side by side",
-            "Compare two saved scenarios directly from the local scenario database",
-            "Simulate SOC drift, correction, BMS flags, and balancing",
-            "Analyze motor curves and inverter device losses",
-            "Estimate heat generation, cooling demand, and derating risk",
-            "Save, load, delete, and export EV design scenarios",
-            "Search, filter, preview, delete, and export saved scenarios",
-            "Import scenario JSON files and export the saved scenario library",
-            "Visual analytics for chemistry mix, pack energy, range, charging time, and saved scenario trends",
-            "Generate PDF, Markdown, CSV, and JSON reports manually",
-            "Generate reports automatically from loaded saved scenarios"
-        ],
-        "Build Status": [
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete",
-            "Complete"
-        ]
-    }
-
-    return safe_dataframe_from_equal_lists(data)
+    st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
 
 
 # -------------------------------------------------------
@@ -296,42 +283,6 @@ def module_status_dataframe():
 if page == "Home":
     show_header()
 
-    render_section(
-        "Command Center",
-        "A unified engineering dashboard for experimenting with EV subsystem tradeoffs under Indian operating conditions."
-    )
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        render_metric_card(
-            "Domain",
-            "EV Systems",
-            "Battery to wheel"
-        )
-
-    with col2:
-        render_metric_card(
-            "Build Stage",
-            "Sprint 14",
-            "UI polish active"
-        )
-
-    with col3:
-        render_metric_card(
-            "Core Modules",
-            "19",
-            "Full MVP workflow"
-        )
-
-    with col4:
-        render_metric_card(
-            "Status",
-            "Operational",
-            "Ready for demo"
-        )
-
-    st.divider()
 
     left, right = st.columns([1.35, 1])
 
@@ -364,36 +315,6 @@ if page == "Home":
             )
         )
 
-        render_info_card(
-            "Industry Workflow",
-            (
-                "Design → Simulate → Compare → Save Scenario → Load Scenario → Auto-Generate Report. "
-                "This workflow turns the dashboard from a calculator into a reusable EV decision-support platform."
-            )
-        )
-
-        render_info_card(
-            "Current Build Output",
-            (
-                "The project now includes subsystem simulation modules, persistent scenario storage, "
-                "manual report generation, auto-report generation from saved scenarios, GitHub documentation, "
-                "and professional UI styling."
-            )
-        )
-
-    st.divider()
-
-    render_section(
-        "Module Roadmap",
-        "Current build status across all Vidyut Vahanastra subsystems."
-    )
-
-    roadmap_data = module_status_dataframe()
-    st.dataframe(
-        roadmap_data,
-        use_container_width=True,
-        hide_index=True
-    )
 
     st.divider()
 
@@ -443,8 +364,7 @@ if page == "Home":
     st.divider()
 
     render_section(
-        "Recommended Demo Flow",
-        "Use this sequence when presenting the project."
+        "Recommended Demo Flow"
     )
 
     demo_flow = pd.DataFrame(
