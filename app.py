@@ -606,7 +606,7 @@ elif page == "Preset to Saved Scenario":
 # APP HEALTH CHECK
 # -------------------------------------------------------
 elif page == "App Health Check":
-    run_app_health_page(health_df, health_summary)
+    run_app_health_page()
 
 
 # -------------------------------------------------------
