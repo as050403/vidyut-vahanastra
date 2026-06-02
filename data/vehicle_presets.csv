@@ -1,0 +1,12 @@
+Vehicle_Preset,Segment,Reference_Model,Usable_Battery_kWh,Claimed_Range_km,Practical_Range_km,Motor_Power_kW,Motor_Torque_Nm,Mass_kg,Cd,Frontal_Area_m2,Crr,Drivetrain_Efficiency,Default_Speed_kmh,Default_HVAC_kW,Auxiliary_Load_kW,Default_Charger_kW,Chemistry_Assumption,Notes
+E-Scooter Urban,Two-Wheeler,Generic Indian E-Scooter,3.0,120,85,5.0,40,120,0.90,0.60,0.015,0.82,35,0.0,0.05,1.0,LFP/NMC,"Generic low-speed urban two-wheeler preset"
+Ola S1 Pro Style,Two-Wheeler,Ola S1 Pro Gen 3 inspired,4.0,242,150,11.0,58,130,0.88,0.60,0.015,0.84,40,0.0,0.08,1.5,NMC,"Inspired by public Ola S1 Pro Gen 3 specification range"
+Ola S1 Pro Plus Style,Two-Wheeler,Ola S1 Pro+ Gen 3 inspired,5.2,320,200,13.0,65,140,0.88,0.62,0.015,0.85,45,0.0,0.08,1.5,NMC,"Inspired by public Ola S1 Pro+ Gen 3 specification range"
+Compact City EV,Hatchback,Generic Indian City EV,25.0,280,200,55.0,115,1200,0.32,2.10,0.011,0.86,50,1.0,0.30,7.2,LFP,"Generic compact city EV preset"
+Tata Tiago EV Style,Hatchback,Tata Tiago.ev 24 kWh inspired,24.0,285,210,55.0,114,1235,0.34,2.05,0.011,0.86,50,1.0,0.30,7.2,LFP,"Inspired by public Tiago.ev 24 kWh range data"
+Compact SUV EV,SUV,Generic Indian Compact SUV EV,38.0,400,270,95.0,215,1550,0.35,2.35,0.012,0.85,70,1.5,0.40,50.0,LFP,"Generic compact SUV EV preset"
+Tata Nexon EV 45 Style,SUV,Tata Nexon.ev 45 kWh inspired,45.0,489,330,106.0,215,1650,0.35,2.35,0.012,0.85,70,1.5,0.40,60.0,LFP,"Inspired by public Nexon.ev 45 kWh specification range"
+Premium Sedan EV,Sedan,Generic Premium EV Sedan,75.0,550,430,180.0,350,1900,0.24,2.20,0.010,0.88,90,1.2,0.50,150.0,NMC,"Generic premium sedan EV preset"
+BYD Atto 3 Style,SUV,BYD Atto 3 inspired,60.48,521,400,150.0,310,1750,0.29,2.35,0.011,0.88,80,1.5,0.45,80.0,LFP Blade,"Inspired by public BYD Atto 3 specification listing"
+Electric Bus,Commercial,Generic Indian Electric Bus,200.0,250,190,180.0,900,12000,0.60,8.00,0.008,0.80,40,5.0,1.50,120.0,LFP/LTO,"Generic electric bus preset"
+Fast-Charging Bus,Commercial,LTO fast-charge bus concept,160.0,180,140,160.0,850,11500,0.62,8.00,0.008,0.80,35,5.0,1.50,150.0,LTO,"Concept preset for high-cycle fast-charging bus"

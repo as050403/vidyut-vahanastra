@@ -1,0 +1,5 @@
+Chemistry,Full_Name,Nominal_Voltage_V,Full_Charge_V,Energy_Density_Min_Whkg,Energy_Density_Max_Whkg,Cycle_Life_Min,Cycle_Life_Max,Safety_Score,Cost_Score,Power_Score,Indian_Suitability_Score,Thermal_Stability,Major_Strength,Major_Limitation
+LFP,Lithium Iron Phosphate,3.2,3.4,90,160,2000,5000,10,9,7,10,Very High,High safety and long cycle life,Lower energy density
+NMC,Nickel Manganese Cobalt,3.6,4.2,150,280,800,2000,6,5,8,7,Medium,High energy density,Balances cost energy and safety but needs thermal care
+NCA,Nickel Cobalt Aluminum,3.6,4.2,200,260,500,1000,5,4,9,5,Lower,Very high energy density,Lower cycle life and thermal stability concern
+LTO,Lithium Titanate,2.4,2.8,50,80,10000,15000,9,3,10,6,Very High,Ultra-fast charging and very long life,Very low energy density and high cost

@@ -1,0 +1,15 @@
+Charger_Type,Power_kW,Typical_Use,Connector_Example
+Home Slow AC,2.3,Emergency or overnight home charging,15A socket
+Home Standard AC,3.3,Common Indian home EV charging,AC plug / Type 2
+Public AC,7.2,Apartment workplace and public AC charging,Type 2
+Public AC,7.4,Apartment workplace and public AC charging,Type 2
+Three Phase AC,11.0,Faster AC charging for premium EVs,Type 2
+High Power AC,22.0,Premium AC charging,Type 2
+Bharat DC-001,15.0,Low-voltage DC public charging,GB/T based
+Small DC Fast Charger,25.0,Small car and city EV DC charging,CCS2 / DC standard
+DC Fast Charger,30.0,Small public DC fast charging,CCS2
+DC Fast Charger,50.0,Common highway DC fast charging,CCS2
+Tata-style 60 kW DC,60.0,Compact SUV EV 10-80% fast charging,CCS2
+BYD-style 80 kW DC,80.0,Premium SUV DC charging,CCS2
+High Power DC,150.0,Modern fast charging corridor,CCS2
+Ultra Fast DC,350.0,800 V high-power charging,CCS2

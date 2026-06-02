@@ -1,0 +1,14 @@
+<svg width="520" height="160" viewBox="0 0 520 160" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="160" rx="28" fill="#050B12"/>
+  <circle cx="78" cy="80" r="44" fill="#00E676" opacity="0.16"/>
+  <path d="M88 24 L48 88 H78 L62 136 L114 66 H82 Z" fill="#00E676"/>
+  <text x="145" y="72" fill="#E6F1FF" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">
+    Vidyut
+  </text>
+  <text x="145" y="113" fill="#00E676" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700">
+    Vahanastra
+  </text>
+  <text x="145" y="137" fill="#90A4AE" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    EV Digital Twin Dashboard
+  </text>
+</svg>

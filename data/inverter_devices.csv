@@ -1,0 +1,4 @@
+Device_Type,Voltage_Rating_V,Typical_Switching_Min_kHz,Typical_Switching_Max_kHz,Max_Junction_Temperature_C,Cost_Level,Default_Rds_mOhm,Default_Vce_sat_V,Default_Rce_mOhm,Default_Eon_mJ,Default_Eoff_mJ,Recommended_Use,Major_Strength,Major_Limitation
+Si IGBT,1200,10,20,175,Low,0,1.8,5,8,8,Mainstream EV traction inverters,Low cost and mature technology,Higher switching loss
+SiC MOSFET,1200,20,100,200,High,15,0,0,3,3,High-efficiency high-voltage EVs,Lower switching loss and higher temperature operation,Higher cost
+GaN HEMT,650,100,1000,150,Emerging,8,0,0,1,1,OBC and DC-DC converters,Very fast switching and low gate charge,Voltage limitation for traction inverters

@@ -1,0 +1,5 @@
+Motor_Type,Full_Name,Typical_Use,Peak_Efficiency_Percent,Power_Density_Score,Cost_Score,Control_Complexity_Score,Rare_Earth_Dependence,Default_Peak_Torque_Nm,Default_Base_Speed_RPM,Default_Max_Speed_RPM,Default_Gear_Ratio,Major_Strength,Major_Limitation
+PMSM,Permanent Magnet Synchronous Motor,Passenger EVs and high-efficiency EVs,96,9,5,8,High,250,4000,14000,9.0,High efficiency and power density,Rare-earth magnet dependence
+IM,Induction Motor,Rugged EV and commercial applications,92,7,7,6,None,260,3500,12000,8.5,Rugged and magnet-free,Lower efficiency and higher mass
+BLDC,Brushless DC Motor,Two-wheelers and low-power EVs,90,6,8,5,Medium,60,3000,8500,10.0,Simple and low cost,Torque ripple and lower high-speed performance
+IPM,Interior Permanent Magnet Motor,Modern high-performance EVs,97,10,4,9,High,300,4500,18000,9.5,Wide speed range and high efficiency,Higher design and control complexity
